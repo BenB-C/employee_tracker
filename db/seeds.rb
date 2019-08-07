@@ -14,13 +14,13 @@ employees = []
 10.times do |index|
   division = Division.create!(name: Faker::Job.unique.field)
   5.times do |index|
-    employee = Employee.create!(name: Facker::Name.name, division_id: division.id)
+    employee = Employee.create!(name: Faker::Name.name, division_id: division.id)
     employees.push(employee)
   end
 end
 projects = []
 10.times do |index|
-  project = Project.create(!name: Faker::Job.unique.key_skill)
+  project = Project.create!(name: Faker::Job.unique.key_skill)
   projects.push(project)
 end
 
