@@ -1,0 +1,17 @@
+
+<h1>Divisions</h1>
+
+<% if @divisions.any? %>
+  <ul>
+    <% @divisions.each do |division| %>
+      <li><%= link_to division.name, division_path(division) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No divisions to show.</p>
+<% end %>
+
+
+
+<p><%= link_to "Add an division", new_division_path(@division) %></p>
+<p><%= link_to "Projects", projects_path %></p>
