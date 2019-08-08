@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   resources :projects do
     resources :employees
   end
-
+  resources :employees
+  resources :employee_projects
 end

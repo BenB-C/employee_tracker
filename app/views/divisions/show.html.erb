@@ -1,3 +1,8 @@
+<% content_for(:navbar) do %>
+  <li><a href="/">Home</a></li>
+  <li><%= link_to @division.name, division_path(@division) %></li>
+<% end %>
+
 <div class="jumbotron">
   <h1><%= @division.name %></h1>
 </div>

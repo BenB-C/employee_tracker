@@ -1,0 +1,16 @@
+
+<h1>Projects</h1>
+
+<% if @projects.any? %>
+  <ul>
+    <% @projects.each do |project| %>
+      <li><%= link_to project.name, project_path(project) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No projects to show.</p>
+<% end %>
+
+<p><%= link_to "Add an project", new_project_path(@project) %></p>
+<p><%= link_to "Divisions", divisions_path %></p>
+<p><%= link_to "Employees", employees_path %></p>

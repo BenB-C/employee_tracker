@@ -1,0 +1,32 @@
+<div class="jumbotron">
+  <h1><%= @employee.name %></h1>
+  <% if @employee.division_id %>
+    <% division = Division.find(@employee.division_id)%>
+    <h3>Division: <%= division.name %></h3>
+  <% else %>
+    <h2>Division: None</h2>
+  <% end %>
+</div>
+
+<% if @employee.projects.any? %>
+  <h3>Employee projects:</h3>
+  <table>
+    <% @employee.projects.each do |project| %>
+      <tr>
+        <td><%= link_to project.name, project_path(project) %></td>
+        <td class="remove-from-project"><%= link_to "Remove from project", employee_project_path(project_id: project.id),
+                                :data => {:confirm => "Are you sure?",
+                                               :method => "delete"} %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>No projects to show.</p>
+<% end %>
+
+<p><%= link_to "Add employee to a project", new_employee_project_path(id: @employee.id) %></p>
+<p><%= link_to "Edit employee details", edit_employee_path(@employee) %></p>
+<p><%= link_to "Delete employee", employee_path(@employee),
+                        :data => {:confirm => "Are you sure?",
+                                       :method => "delete"} %></p>
+<p><%= link_to "Return to employees", employees_path %></p>

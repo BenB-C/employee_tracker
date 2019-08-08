@@ -21,3 +21,37 @@
 body {
   padding: 0 30px;
 }
+
+table {
+  margin-bottom: 1em;
+}
+
+td {
+  padding: 0 10px;
+}
+
+tr {
+  margin: 5px;
+}
+
+// .remove-from-project {
+//   background-color: crimson;
+//   border: gray solid 1px;
+// }
+// .remove-from-project a {
+//   color: white;
+//   text-decoration: none;
+// }
+
+.remove-from-project a:link, .remove-from-project a:visited {
+  background-color: #f44336;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+remove-from-project a:hover, remove-from-project a:active {
+  background-color: red;
+}

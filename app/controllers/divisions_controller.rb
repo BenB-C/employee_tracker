@@ -13,7 +13,7 @@ class DivisionsController < ApplicationController
   def create
     @division = Division.new(division_params)
     if @division.save
-      # flash[:notice] = "Division successfully added!"
+      flash[:notice] = "Division successfully added!"
       redirect_to divisions_path
     else
       render :new
@@ -33,7 +33,7 @@ class DivisionsController < ApplicationController
   def update
     @division= Division.find(params[:id])
     if @division.update(division_params)
-      redirect_to divisions_path
+      redirect_to division_path(@division)
     else
       render :edit
     end

@@ -1,0 +1,14 @@
+<h1>Assign <%= @employee.name %> to a New Project</h1>
+
+<h4>Available Projects:</h4>
+<% if @projects.any? %>
+  <%= form_for @employee, :url => employee_projects_path(id: @employee.id), :method => "post" do |f| %>
+    <%= collection_select(:post, :project_id, @projects, :id, :name) %>
+    <%= f.submit "Add Employee to Project"%>
+  <% end %>
+<% else %>
+  <p><%=@employee.name%> is already assigned to all projects. Maybe they deserve a raise!</p>
+<% end %>
+
+<p><%= link_to "Return to employee details", employee_path(@employee) %></p>
+<p><%= link_to "All employees", employees_path %></p>

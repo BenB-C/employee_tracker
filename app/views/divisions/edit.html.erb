@@ -5,4 +5,17 @@
 
 <h1>Edit Division</h1>
 
-<%= render "layouts/division_form" %>
+<% if @division.errors.any? %>
+<h3>Please fix these errors:</h3>
+<ul>
+  <% @division.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_for @division do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>

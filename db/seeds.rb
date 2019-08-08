@@ -9,6 +9,7 @@
 Division.destroy_all
 Employee.destroy_all
 Project.destroy_all
+EmployeeProject.destroy_all
 
 employees = []
 10.times do |index|
@@ -18,14 +19,19 @@ employees = []
     employees.push(employee)
   end
 end
+p "#{Employee.all.length} employees created"
+p "#{Division.all.length} divisions created"
+
 projects = []
 10.times do |index|
   project = Project.create!(name: Faker::Job.unique.key_skill)
   projects.push(project)
 end
-
-employees.each do |employee|
+p "#{Project.all.length} projects created"
+employees.each_with_index do |employee, i|
   num_projects = rand(1..4)
   employee_projects = projects.sample(num_projects)
   employee_projects.each { |project| employee.projects << project }
+  # p "#{employee.projects.length} projects added to employee #{i + 1}"
 end
+p "#{EmployeeProject.all.length} employee_projects created"
